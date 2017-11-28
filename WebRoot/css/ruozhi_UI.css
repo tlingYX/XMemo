@@ -1,0 +1,154 @@
+/*通用的CSS*/
+
+/*毛玻璃*/
+.content {
+	width: 80%;
+	height: 400px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	overflow: hidden;
+	margin-top: -200px;
+	margin-left: -40%;
+	border-radius: 10px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+	z-index: 100;
+	padding: 20px;
+	box-sizing: border-box;
+	/*不会把盒子撑开*/
+}
+
+.content::before {
+	content: "";
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: -1;
+	/*-1 可以当背景*/
+	-webkit-filter: blur(20px);
+	filter: blur(20px);
+	margin: -30px; /*消除边缘透明*/
+	background: url() center top;
+	background-size: cover;
+	/*平铺*/
+	background-attachment: fixed;
+	/*位置固定*/
+}
+
+/*图标*/
+.English-ico {
+	float: left;
+	width: 56px;
+	height: 50px;
+}
+/*标题*/
+.headline {
+	
+}
+/**登陆框背景颜色**/
+.login-frame {
+	width: 100%;
+}
+/**主页管理员头像**/
+.Index-Portrait {
+	width: 80px;
+	height: 80px;
+}
+/*登陆按钮*/
+.login-btn {
+	background: #3399ff;
+	width: 74%;
+	height: 40px;
+}
+
+.login-btn:HOVER {
+	background: #3399dd;
+}
+/*底部说明*/
+.explain-bottom {
+	margin-top: 4%;
+}
+
+/*搜索*/
+.search-btn {
+	background: #3385ff;
+	color: #fff;
+}
+
+.search-btn:HOVER {
+	background: #3399dd;
+}
+/*字体颜色点击*/
+.text-white:HOVER {
+	color: #ddd;
+}
+/**管理员头像**/
+.manage-Portrait {
+	width: 56px;
+	height: 56px;
+}
+/*居左8%*/
+.left-8 {
+	margin-left: 8%
+}
+/*居右8%*/
+.right-8 {
+	float: right;
+	margin-right: 8%
+}
+
+/*封面*/
+.container-bg {
+	width: 100%;
+	height: 200px;
+}
+
+.wireframe-green {
+	padding: 9px 9px;
+	border: 2px solid #43b548;
+}
+
+.cover {
+	width: 100%;
+	height: 165px;
+	background-size: 105% 105%;
+}
+
+@media ( min-width : 768px) {
+	.content {
+		width: 500px;
+		height: 400px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		overflow: hidden;
+		margin-top: -200px;
+		margin-left: -250px;
+		border-radius: 10px;
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+		z-index: 100;
+		padding: 16px;
+		box-sizing: border-box;
+		/*不会把盒子撑开*/
+	}
+	.content::before {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: -1;
+		/*-1 可以当背景*/
+		-webkit-filter: blur(20px);
+		filter: blur(20px);
+		margin: -30px; /*消除边缘透明*/
+		background: url() center top;
+		background-size: cover;
+		/*平铺*/
+		background-attachment: fixed;
+		/*位置固定*/
+	}
+}
