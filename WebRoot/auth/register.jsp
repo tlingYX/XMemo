@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-8 col-sm-offset-2">
-                <input class="form-control" name="pass" type="password"
+                <input class="form-control" name="password" type="password"
                     maxlength="16" placeholder="密码">
             </div>
         </div>

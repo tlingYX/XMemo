@@ -1,7 +1,6 @@
 package controllers.auth;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import mapper.user.UserInformation;
 import models.User;
@@ -13,35 +12,41 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class Login {
-	
-	ModelAndView modelAndView = new ModelAndView();
-	
-	public Login() {
 
-		modelAndView.setViewName("app");	
-	}
-	
 	@RequestMapping(value = "/login", method=RequestMethod.GET) // 登陆页面
 	public ModelAndView index() {
-	
+		
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("app");
 		modelAndView.addObject("content", "auth/login");
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/login", method=RequestMethod.POST) // 登陆请求
 	public ModelAndView store(HttpServletRequest request) throws Throwable {
+
+		ModelAndView modelAndView = new ModelAndView();
 		
 		String email = request.getParameter("email");
-		String password = request.getParameter("password");
+		String password = request.getParameter("password");	
+		
+		// 验证
+		modelAndView.setViewName("app");
+		modelAndView.addObject("content", "auth/login");
+		if(email == "" || email.length()<1) {
+			modelAndView.addObject("message", "邮箱不得为空");
+			return modelAndView;
+		}
+		if(password == "" || password.length()<1) {
+			modelAndView.addObject("message", "密码不得为空");
+			return modelAndView;
+		}
 		
 		// 查询用户
 		User user = new User();
 		UserInformation userInformation = new UserInformation();
 		user = userInformation.findUserByEmail(email);
-		
-		
-		// 验证
-		modelAndView.addObject("content", "auth/login");
+		// User问题
 		if(null==user) {
 			modelAndView.addObject("message", "该邮箱未注册");
 			return modelAndView;
@@ -51,9 +56,24 @@ public class Login {
 			return modelAndView;
 		}
 		
-		modelAndView.addObject("message", "登陆成功");
+		// 登录成功
+		modelAndView.addObject("message", "登录成功");
 		modelAndView.addObject("content", "index");
 		
+		request.getSession().setAttribute("user", user);
+		modelAndView.setViewName("forward:index");
+
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/logout", method=RequestMethod.POST) // 退出请求
+	public ModelAndView logout(HttpServletRequest request) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		request.getSession().removeAttribute("user");
+		
+		modelAndView.setViewName("redirect:login");
 		return modelAndView;
 	}
 }

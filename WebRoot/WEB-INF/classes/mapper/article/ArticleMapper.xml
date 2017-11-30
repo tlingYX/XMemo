@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.article.ArticleMapper">
+    <parameterMap type="Article" id="Article"></parameterMap>
+    <resultMap type="Article" id="Article"></resultMap>
+     
+    <select id="findArticleById" parameterType="java.lang.Integer" resultMap="Article">
+        SELECT * FROM article WHERE user_id = #{user_id}
+    </select>
+    
+    <!-- 插入Article -->
+    <insert id="insertArticle" parameterMap="Article" >
+        INSERT INTO article (`user_id`, `text`, `issued`) 
+        VALUES (#{user_id}, #{text}, #{issued})
+    </insert>
+    <!-- 插入Article -->
+</mapper>
+

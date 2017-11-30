@@ -28,6 +28,33 @@
 		<!--缓存大小 -->
 		<property name="maxInMemorySize" value="1048576" />
 	</bean>
-	
+
+    <!-- mvc:interceptors过滤拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 需要过滤的地址 -->
+            <mvc:mapping path="/**" />
+            <bean class="interceptor.UserInterception"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+    
+    <!-- @ResponseBody之后返回字符串中中文可能会出现乱码 因为sping mvc
+    默认是text/plain;charset=ISO-8859-1，要支持中需做如下配置指定编码格式 -->
+    <bean
+        class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <bean
+                    class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="supportedMediaTypes">
+                        <list>
+                            <!--返回字符串格式json -->
+                            <value>application/json;charset=UTF-8</value>
+                        </list>
+                    </property>
+                </bean>
+            </list>
+        </property>
+    </bean>
 </beans>
 

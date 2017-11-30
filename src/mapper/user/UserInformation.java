@@ -1,7 +1,5 @@
 package mapper.user;
 
-import java.io.IOException;
-
 import org.apache.ibatis.session.SqlSession;
 
 import mapper.SqlResource;

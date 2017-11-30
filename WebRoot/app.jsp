@@ -9,21 +9,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
     <base href="<%=basePath%>">
    
-    <title>app</title> 
+    <title>${user.name}个人日记</title> 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<meta name="viewport"
 	    content="width=device-width, initial-scale=1.0,
 	        maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/ruozhi_UI.css">
-
+    <link rel="stylesheet" type="text/css" href="css/summernote.css">
 </head>
   
 <body>
+      <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.min.js"></script>
+      
 	  <!-- header -->    
 	  <jsp:include page="layouts/header.jsp"></jsp:include>
 	  <!-- header end -->
-
       <!-- message -->    
       <jsp:include page="flashs/message.jsp"></jsp:include>
       <!-- message end -->

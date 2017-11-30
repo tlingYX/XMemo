@@ -27,6 +27,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<!-- 加载映射文件 -->
 	<mappers>
 		<mapper class="mapper.user.UserMapper" />
+		<mapper class="mapper.article.ArticleMapper" />
 	</mappers>
 
 </configuration>
