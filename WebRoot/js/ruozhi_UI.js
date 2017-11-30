@@ -1,7 +1,6 @@
 
 // AJAX POST发送数据
 function postUrl(data, url) {
-	alert(data.sumcode);
 	var message;
 	$.ajax({
 		async : false,

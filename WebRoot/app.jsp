@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
       <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.min.js"></script>
-      
+      <script type="text/javascript" src="js/ruozhi_UI.js"></script>
 	  <!-- header -->    
 	  <jsp:include page="layouts/header.jsp"></jsp:include>
 	  <!-- header end -->

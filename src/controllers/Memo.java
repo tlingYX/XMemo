@@ -10,6 +10,7 @@ import models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -38,7 +39,6 @@ public class Memo {
 		article.setIssued(new java.sql.Date(new java.util.Date().getTime()));
 
 		
-		
 		// 成功后跳转到主页
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("app");
@@ -49,4 +49,11 @@ public class Memo {
 		
 	}
 	
+	@ResponseBody
+	@RequestMapping(value = "/delectArticle")
+	public String delectArticle(int id) throws Exception {
+		ArticleInformation articleInformation = new ArticleInformation();
+		articleInformation.delectArticleById(id);
+		return "成功删除";
+	}
 }

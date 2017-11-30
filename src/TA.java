@@ -14,6 +14,7 @@ public class TA {
 //		
 //		articleInformation.insertArticle(article);
 		
-		System.out.println(articleInformation.findArticleById(1));
+//		System.out.println(articleInformation.findArticleById(1));
+		articleInformation.delectArticleById(1);
 	}
 }

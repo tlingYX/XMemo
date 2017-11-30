@@ -25,6 +25,7 @@ public class Register {
 	@RequestMapping(value = "/register", method=RequestMethod.POST)	// 注册操作
 	public ModelAndView store(HttpServletRequest request) throws Throwable {
 		
+		request.setCharacterEncoding("utf-8");
 		ModelAndView modelAndView = new ModelAndView();
 		
 		String name = request.getParameter("name");
@@ -32,6 +33,7 @@ public class Register {
 		String password = request.getParameter("password");
 		String confirmPass = request.getParameter("confirmPass");
 		
+		System.out.println(name);
 		
 		// 验证
 		modelAndView.setViewName("app");

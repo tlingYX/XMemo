@@ -8,7 +8,6 @@
 <button class="btn btn-success right-8" onclick="submitup()">发表</button>
 
 <script type="text/javascript" src="js/summernote.min.js"></script>
-<script type="text/javascript" src="js/ruozhi_UI.js"></script>
 <script type="text/javascript">
 domain = "http://localhost:8080/XMemo/";
 $('#summernote').summernote({
