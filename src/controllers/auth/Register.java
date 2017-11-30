@@ -33,8 +33,6 @@ public class Register {
 		String password = request.getParameter("password");
 		String confirmPass = request.getParameter("confirmPass");
 		
-		System.out.println(name);
-		
 		// 验证
 		modelAndView.setViewName("app");
 		modelAndView.addObject("content", "auth/register");

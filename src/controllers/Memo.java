@@ -33,12 +33,10 @@ public class Memo {
 		
 		User user = (User)request.getSession().getAttribute("user");
 		
-		
 		article.setUser_id(user.getId()); 
 		article.setText(request.getParameter("sumcode"));;
 		article.setIssued(new java.sql.Date(new java.util.Date().getTime()));
 
-		
 		// 成功后跳转到主页
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("app");
