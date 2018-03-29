@@ -72,11 +72,12 @@ public class Register {
 		
 		userInformation.insertUser(user);
 		
+		user = userInformation.findUserByEmail(user.getEmail());
 		modelAndView.addObject("message", "注册成功,请登陆");
 		modelAndView.addObject("content", "auth/login");
 		
 		request.getSession().setAttribute("user", user);
-		modelAndView.setViewName("forward:index");
+		modelAndView.setViewName("forward:login");
 		
 		return modelAndView;
 	}

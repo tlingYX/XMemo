@@ -22,7 +22,7 @@ import models.ImageInfo;
 @Controller
 public class UploadFile {
 	
-	private final static String path = "G:\\Tomcat\\apache-tomcat-7.0.75\\apache-tomcat-7.0.75\\webapps\\XMemo\\files\\images";
+	private final static String path = "/var/lib/tomcat8/webapps/XMemo/files/images";
 	// 属于图片格式
 	private final static String[] imgFormat = { ".bmp", ".jpg", ".jpeg",
 			".png", ".gif" };

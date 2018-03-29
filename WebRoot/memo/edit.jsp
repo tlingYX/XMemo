@@ -9,7 +9,7 @@
 
 <script type="text/javascript" src="js/summernote.min.js"></script>
 <script type="text/javascript">
-domain = "http://localhost:8080/XMemo/";
+domain = "http://192.168.10.11:8080/XMemo/";
 $('#summernote').summernote({
     height: 500,                 // set editor height
     minHeight:null,             // set minimum heightof editor
